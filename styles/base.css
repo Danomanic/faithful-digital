@@ -1,0 +1,79 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fd-white);
+  color: var(--fd-ink);
+  font-family: var(--fd-font);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 40em) { body { font-size: 1.1875rem; } }
+
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; margin: 0 0 var(--fd-space-3); text-wrap: balance; }
+h1 { font-size: 2rem; margin-bottom: var(--fd-space-5); }
+h2 { font-size: 1.5rem; margin-top: var(--fd-space-8); }
+h3 { font-size: 1.2rem; margin-top: var(--fd-space-6); }
+h4 { font-size: 1.05rem; margin-top: var(--fd-space-5); }
+h1 + h2, h2 + h3, h3 + h4 { margin-top: 0; }
+
+@media (min-width: 40em) {
+  h1 { font-size: 2.75rem; }
+  h2 { font-size: 1.85rem; }
+  h3 { font-size: 1.35rem; }
+}
+
+p, ul, ol { margin: 0 0 var(--fd-space-4); }
+ul, ol { padding-left: var(--fd-space-5); }
+li { margin-bottom: var(--fd-space-1); }
+li > ul, li > ol { margin-top: var(--fd-space-1); margin-bottom: 0; }
+hr { border: 0; border-top: 1px solid var(--fd-rule); margin: var(--fd-space-8) 0; }
+strong { font-weight: 700; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .9em; }
+
+a { color: var(--fd-link); text-decoration-thickness: max(1px, .0625em); text-underline-offset: .15em; }
+a:visited { color: var(--fd-visited); }
+a:hover { text-decoration-thickness: max(3px, .1875em); }
+
+/* Two-tone focus: amber inside ink. One ring reaches 3:1 on every approved background. */
+:focus-visible {
+  outline: 3px solid var(--fd-amber);
+  outline-offset: 0;
+  box-shadow: 0 0 0 6px var(--fd-ink);
+}
+[tabindex="-1"]:focus { outline: none; box-shadow: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+.fd-width { max-width: var(--fd-page-width); margin-inline: auto; padding-inline: var(--fd-space-3); }
+@media (min-width: 40em) { .fd-width { padding-inline: var(--fd-space-6); } }
+
+.fd-main { padding-block: var(--fd-space-6) var(--fd-space-10); }
+.fd-reading { max-width: var(--fd-reading-width); min-width: 0; }
+.fd-lead { font-size: 1.2em; line-height: 1.4; }
+.fd-muted { color: var(--fd-muted); }
+.fd-small { font-size: .9em; }
+.fd-visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip-path: inset(50%); border: 0; white-space: nowrap;
+}
+
+.fd-with-nav { display: grid; gap: var(--fd-space-8); }
+@media (min-width: 56em) {
+  .fd-with-nav { grid-template-columns: 15rem minmax(0, 1fr); gap: var(--fd-space-10); }
+  .fd-with-nav > .fd-side-nav { order: -1; }
+}
+
+@media print {
+  .fd-skip-link, .fd-header__nav, .fd-side-nav, .fd-footer, .fd-phase, .fd-no-print { display: none !important; }
+  a { color: inherit; }
+}
+
+/* Keeps single-column pages aligned with the header, at a comfortable reading width. */
+.fd-narrow > * { max-width: var(--fd-reading-width); }

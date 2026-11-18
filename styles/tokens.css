@@ -1,0 +1,32 @@
+:root {
+  /* Evergreen palette */
+  --fd-primary: #0b4f4a;
+  --fd-link: #0b5f59;
+  --fd-visited: #5b3a78;
+  --fd-tint: #e8f2f0;
+  --fd-accent: #b7ddd6;
+
+  /* Shared colours */
+  --fd-ink: #1c1b1a;
+  --fd-muted: #55524e;
+  --fd-white: #ffffff;
+  --fd-border: #8a8782;
+  --fd-rule: #d8d6d2;
+  --fd-error: #b3261e;
+  --fd-success: #1e6b3a;
+  --fd-amber: #f2b705;
+
+  /* Spacing, based on 5px */
+  --fd-space-1: 5px;
+  --fd-space-2: 10px;
+  --fd-space-3: 15px;
+  --fd-space-4: 20px;
+  --fd-space-5: 25px;
+  --fd-space-6: 30px;
+  --fd-space-8: 40px;
+  --fd-space-10: 50px;
+
+  --fd-page-width: 1000px;
+  --fd-reading-width: 42rem;
+  --fd-font: "Source Sans 3 Variable", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}

@@ -1,0 +1,43 @@
+{
+  "name": "faithful-digital",
+  "version": "0.3.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run templates && next build",
+    "start": "node scripts/serve-out.mjs 4321",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check:alignment": "node scripts/check-alignment.mjs",
+    "verify": "npm run typecheck && npm run lint && npm test && npm run build && npm run pdf && npm run check:alignment && npm run test:e2e",
+    "pdf": "node scripts/generate-pdf.mjs",
+    "templates": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/generate-docx.ts"
+  },
+  "dependencies": {
+    "@fontsource-variable/source-sans-3": "^5.3.1",
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.4.5",
+    "next": "^16.4.5",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@types/mdx": "^2.0.14",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "docx": "9.15.2",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.4.5",
+    "fflate": "0.8.3",
+    "typescript": "^6.0.3",
+    "vitest": "^5.1.0"
+  }
+}
